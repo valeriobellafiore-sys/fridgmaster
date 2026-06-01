@@ -1,0 +1,36 @@
+[
+    {
+        "id": "rec_004",
+        "nome": "Gnocchi alla Sorrentina",
+        "ingredienti": [
+            "gnocchi",
+            "patate",
+            "mozzarella",
+            "pomodoro",
+            "basilico"
+        ],
+        "tempo": "30 min",
+        "difficolta": "N/D",
+        "immagine": "https://i.ibb.co/QFsqwLRc/gnocchi-alla-sorrentina.jpg",
+        "premium_only": false,
+        "url_esterno": "https://ricette.giallozafferano.it/Gnocchi-alla-sorrentina.html"
+    },
+    {
+        "id": "rec_005",
+        "nome": "Pizza Margherita Classica",
+        "ingredienti": [
+            "farina",
+            "lievito",
+            "acqua",
+            "sale",
+            "pomodoro",
+            "mozzarella",
+            "basilico"
+        ],
+        "tempo": "2 ore (incluso lievitazione)",
+        "difficolta": "N/D",
+        "immagine": "https://i.ibb.co/Fk5CHqS7/pizza-margherita.jpg",
+        "premium_only": false,
+        "url_esterno": "https://ricette.giallozafferano.it/Pizza-Margherita.html"
+    }
+]

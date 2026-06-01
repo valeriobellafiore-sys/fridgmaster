@@ -1,0 +1,102 @@
+[
+  {
+    "id": "rec_001",
+    "nome": "Risotto allo Zafferano",
+    "ingredienti": ["riso", "zafferano", "burro", "parmigiano"],
+    "tempo": "20 min",
+    "difficolta": "Media",
+    "immagine": "https://images.unsplash.com/photo-1633964913295-ceb43826e7c9?w=500",
+    "premium_only": false,
+    "url_esterno": "https://ricette.giallozafferano.it/Risotto-allo-Zafferano.html"
+  },
+  {
+    "id": "rec_002",
+    "nome": "Pasta al Tonno Veloce",
+    "ingredienti": ["pasta", "tonno", "pomodoro", "cipolla"],
+    "tempo": "15 min",
+    "difficolta": "Facile",
+    "immagine": "https://i.ibb.co/Lh5XdmsJ/pasta-al-tonno.jpg",
+    "premium_only": false,
+    "url_esterno": "https://ricette.giallozafferano.it/Pasta-al-tonno-in-bianco.html"
+  },
+  {
+    "id": "rec_003",
+    "nome": "Tartare Gourmet di Tonno",
+    "ingredienti": ["tonno", "avocado", "lime", "olio"],
+    "tempo": "10 min",
+    "difficolta": "Difficile",
+    "immagine":"https://i.ibb.co/qMM4q4qX/tartare-di-tonno.jpg" ,
+    "premium_only": true,
+    "url_esterno": "https://ricette.giallozafferano.it/Tartare-di-tonno.html"
+  },
+  {
+    "id": "rec_004",
+    "nome": "Gnocchi alla Sorrentina",
+    "ingredienti": ["gnocchi", "patate", "mozzarella", "pomodoro", "basilico"],
+    "tempo": "30 min",
+    "difficoltà": "Facile",
+    "immagine": "https://i.ibb.co/QFsqwLRc/gnocchi-alla-sorrentina.jpg",
+    "premium_only": false,
+    "url_esterno": "https://ricette.giallozafferano.it/Gnocchi-alla-sorrentina.html"
+  },
+  {
+    "id": "rec_005",
+    "nome": "Pizza Margherita Classica",
+    "ingredienti": ["farina", "lievito", "acqua", "sale", "pomodoro", "mozzarella", "basilico"],
+    "tempo": "2 ore (incluso lievitazione)",
+    "difficoltà": "Media",
+    "immagine": "https://i.ibb.co/Fk5CHqS7/pizza-margherita.jpg",
+    "premium_only": false,
+    "url_esterno": "https://ricette.giallozafferano.it/Pizza-Margherita.html"
+  },
+  {
+    "id": "rec_006",
+    "nome": "Lasagne alla Bolognese",
+    "ingredienti": ["pasta per lasagne", "ragù di carne", "besciamella", "parmigiano"],
+    "tempo": "1 ora e 30 min",
+    "difficoltà": "Difficile",
+    "immagine": "https://i.ibb.co/BH6Vf3kw/lasagne.jpg",
+    "premium_only": true,
+    "url_esterno": "https://ricette.giallozafferano.it/Lasagne-alla-Bolognese.html"
+  },
+  {
+    "id": "rec_007",
+    "nome": "Insalata Caprese",
+    "ingredienti": ["pomodoro", "mozzarella", "basilico", "olio", "sale"],
+    "tempo": "10 min",
+    "difficoltà": "Facile",
+    "immagine": "https://i.ibb.co/HLyYNtnP/caprese.jpg",
+    "premium_only": true,
+    "url_esterno": "https://ricette.giallozafferano.it/Caprese-sfiziosa-con-salsa-all-origano.html"
+  },
+  {
+    "id": "rec_008",
+    "nome": "Polpette al Sugo",
+    "ingredienti": ["carne macinata", "uova", "pangrattato", "parmigiano", "pomodoro"],
+    "tempo": "40 min",
+    "difficoltà": "Media",
+    "immagine": "https://i.ibb.co/rPpKXpR/polpette.jpg",
+    "premium_only": true,
+    "url_esterno": "https://ricette.giallozafferano.it/Polpette-al-sugo-della-nonna.html"
+  },
+  {
+    "id": "rec_009",
+    "nome": "Tiramisu Classico",
+    "ingredienti": ["mascarpone", "uova", "zucchero", "caffè", "savoiardi", "cacao"],
+    "tempo": "4 ore (incluso raffreddamento)",
+    "difficoltà": "Media",
+    "immagine": "https://i.ibb.co/0TfSncZ/tiramisu.jpg",
+    "premium_only": true,
+    "url_esterno": "https://ricette.giallozafferano.it/Tiramisu-con-panna.html"
+  },
+  {
+    "id": "rec_010",
+    "nome": "Bruschetta al Pomodoro",
+    "ingredienti": ["pane", "pomodoro", "aglio", "olio", "basilico"],
+    "tempo": "10 min",
+    "difficoltà": "Facile",
+    "immagine": "https://i.ibb.co/SXWjSjCj/bruscehtte.jpg",
+    "premium_only": false,
+    "url_esterno": "https://ricette.giallozafferano.it/Bruschette-al-pomodoro.html"
+  }
+]

@@ -1,0 +1,269 @@
+# --- DEFINIZIONE MANAGER SCHERMATE (REGISTRAZIONE) ---
+ScreenManager:
+    MainScreen:
+        name: 'main'
+    RecipeScreen:
+        name: 'recipes'
+    FavoritesScreen:
+        name: 'favorites'
+
+# --- SCHERMATA PRINCIPALE ---
+<MainScreen>:
+    FloatLayout:
+        Image:
+            source: 'assets/immagini/sfondo.jpg'
+            allow_stretch: True
+            keep_ratio: False
+            opacity: 0.8
+        Widget:
+            canvas:
+                Color:
+                    rgba: 0, 0, 0, 0.4
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+
+    MDBoxLayout:
+        orientation: 'vertical'
+        padding: "15dp"
+        spacing: "12dp"
+
+        MDBoxLayout:
+            size_hint_y: None
+            height: "56dp"
+            spacing: "2dp"
+
+            MDIconButton:
+                icon: "account-circle-outline"
+                theme_text_color: "Custom"
+                text_color: 1, 0.4, 0, 1
+                pos_hint: {"center_y": .5}
+
+            MDLabel:
+                text: "GNAM STYLE"
+                halign: "center"
+                font_style: "H5"
+                bold: True
+                theme_text_color: "Custom"
+                text_color: 1, 0.4, 0, 1
+                pos_hint: {"center_y": .5}
+
+            MDIconButton:
+                icon: "heart-outline"
+                theme_text_color: "Custom"
+                text_color: 1, 0.4, 0, 1
+                pos_hint: {"center_y": .5}
+                on_release: app.root.current = 'favorites'
+
+            MDIconButton:
+                icon: "filter-outline"
+                theme_text_color: "Custom"
+                text_color: 1, 0.4, 0, 1
+                pos_hint: {"center_y": .5}
+
+            MDIconButton:
+                icon: "chart-bar"
+                theme_text_color: "Custom"
+                text_color: 1, 0.4, 0, 1
+                pos_hint: {"center_y": .5}
+
+            MDIconButton:
+                icon: "crown"
+                theme_text_color: "Custom"
+                text_color: 1, 0.4, 0, 1
+                pos_hint: {"center_y": .5}
+
+            MDIconButton:
+                icon: "information-outline"
+                theme_text_color: "Custom"
+                text_color: 1, 0.4, 0, 1
+                pos_hint: {"center_y": .5}
+
+        MDCard:
+            size_hint_y: None
+            height: "56dp"
+            radius: [28,]
+            elevation: 0
+            padding: ["15dp", 0]
+            md_bg_color: 0.1, 0.1, 0.1, 0.5
+            line_color: 1, 1, 1, 0.2
+
+            MDTextField:
+                id: input_testo
+                hint_text: "Cosa c'è nel frigo oggi?"
+                mode: "fill"
+                fill_color_normal: 0, 0, 0, 0
+                active_line: False
+                hint_text_color_normal: 0.8, 0.8, 0.8, 1
+                text_color_normal: 1, 1, 1, 1
+
+        MDBoxLayout:
+            size_hint_y: None
+            height: "56dp"
+            spacing: "15dp"
+            pos_hint: {"center_x": .5}
+            padding: [0, "5dp"]
+
+            MDFillRoundFlatIconButton:
+                text: "AGGIUNGI"
+                icon: "plus-circle-outline"
+                md_bg_color: 1, 0.4, 0, 1
+                on_release: root.aggiungi_ingrediente()
+
+            MDIconButton:
+                icon: "microphone-variant"
+                md_bg_color: 1, 0.4, 0, 1
+                theme_icon_color: "Custom"
+                icon_color: 1, 1, 1, 1
+                user_font_size: "32sp"
+                on_release: root.avvia_voce()
+
+        MDCard:
+            orientation: 'vertical'
+            padding: "12dp"
+            radius: [20,]
+            elevation: 0
+            md_bg_color: 0.1, 0.1, 0.1, 0.6
+            line_color: 1, 1, 1, 0.1
+
+            MDBoxLayout:
+                size_hint_y: None
+                height: "30dp"
+                padding: ["5dp", 0]
+                MDLabel:
+                    text: "Il tuo Inventario"
+                    bold: True
+                    theme_text_color: "Custom"
+                    text_color: 1, 1, 1, 0.7
+                MDLabel:
+                    id: contatore_ingredienti
+                    text: "Cibi: 0"
+                    halign: "right"
+                    bold: True
+                    theme_text_color: "Custom"
+                    text_color: 1, 0.4, 0, 1
+
+            ScrollView:
+                do_scroll_x: False
+                do_scroll_y: True
+                MDBoxLayout:
+                    id: lista_ingredienti
+                    orientation: 'vertical'
+                    size_hint_y: None
+                    height: self.minimum_height
+                    spacing: "8dp"
+                    MDLabel:
+                        id: label_vuoto
+                        text: "Il frigo è vuoto..."
+                        halign: "center"
+                        theme_text_color: "Custom"
+                        text_color: 1, 1, 1, 0.6
+                        size_hint_y: None
+                        height: "40dp"
+
+        MDBoxLayout:
+            size_hint_y: None
+            height: "56dp"
+            spacing: "10dp"
+            padding: [0, "5dp"]
+
+            MDFillRoundFlatButton:
+                text: "TROVA RICETTA (FREE)"
+                md_bg_color: 0.9, 0.3, 0, 0.8
+                size_hint_x: 0.5
+                on_release: root.cerca_ricette(False)
+
+            MDFillRoundFlatButton:
+                text: "PROVA PREMIUM"
+                md_bg_color: 0.8, 0.7, 0, 0.8
+                size_hint_x: 0.5
+                on_release: root.mostra_paywall()
+
+# --- SCHERMATA RICETTE ---
+<RecipeScreen>:
+    FloatLayout:
+        Image:
+            source: 'assets/immagini/sfondo.jpg'
+            allow_stretch: True
+            keep_ratio: False
+            opacity: 0.8
+        Widget:
+            canvas:
+                Color:
+                    rgba: 0, 0, 0, 0.5
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+
+    MDFloatLayout:
+        MDBoxLayout:
+            orientation: 'vertical'
+            padding: "15dp"
+            spacing: "10dp"
+            size_hint: (1, 1)
+
+            MDBoxLayout:
+                size_hint_y: None
+                height: "56dp"
+                spacing: "10dp"
+                MDIconButton:
+                    icon: "arrow-left"
+                    theme_text_color: "Custom"
+                    text_color: 1, 0.4, 0, 1
+                    pos_hint: {"center_y": .5}
+                    on_release: root.manager.current = 'main'
+                MDLabel:
+                    text: "Idee Vincenti per Te"
+                    font_style: "H6"
+                    bold: True
+                    theme_text_color: "Custom"
+                    text_color: 1, 1, 1, 1
+                    pos_hint: {"center_y": .5}
+
+            ScrollView:
+                do_scroll_x: False
+                do_scroll_y: True
+                padding: [0, 0, 0, "80dp"] 
+                MDBoxLayout:
+                    id: contenitore_risultati
+                    orientation: 'vertical'
+                    size_hint_y: None
+                    height: self.minimum_height + dp(80)
+                    spacing: "15dp"
+                    padding: [0, "5dp", 0, "80dp"]
+                    MDLabel:
+                        id: label_caricamento
+                        text: "Sto elaborando i tuoi ingredienti..."
+                        halign: "center"
+                        theme_text_color: "Custom"
+                        text_color: 1, 1, 1, 0.6
+                        size_hint_y: None
+                        height: "40dp"
+
+        MDFillRoundFlatButton:
+            text: "SBLOCCA ALTRE RICETTE GOURMET!"
+            md_bg_color: 1, 0.8, 0, 1
+            size_hint: (0.9, 0.08)
+            pos_hint: {"center_x": 0.5, "y": 0.02}
+            on_release: root.mostra_paywall()
+
+# --- NUOVA SCHERMATA PREFERITI ---
+<FavoritesScreen>:
+    MDFloatLayout:
+        MDTopAppBar:
+            title: "Le tue Ricette Preferite"
+            pos_hint: {"top": 1}
+            elevation: 2
+            left_action_items: [["arrow-left", lambda x: setattr(app.root, 'current', 'main')]]
+            right_action_items: [["delete-sweep", lambda x: root.svuota_tutto()]]
+
+        ScrollView:
+            pos_hint: {"top": 0.9, "bottom": 0}
+            size_hint_y: 0.9
+            MDBoxLayout:
+                id: contenitore_preferiti
+                orientation: 'vertical'
+                size_hint_y: None
+                height: self.minimum_height
+                padding: "10dp"
+                spacing: "10dp"
