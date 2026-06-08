@@ -5,16 +5,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      
       - name: Install dependencies
         run: |
           sudo apt-get update
           sudo apt-get install -y git zip unzip openjdk-17-jdk python3-pip autoconf libtool pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev cmake libffi-dev libssl-dev
           pip3 install --user --upgrade buildozer
+      
       - name: Build with Buildozer
         run: |
-          # Crea la cartella per le licenze
+          # Crea la directory delle licenze ed evita il blocco interattivo
           mkdir -p ~/.android
           touch ~/.android/repositories.cfg
-          # Accetta le licenze in modo non interattivo
-          yes | buildozer android clean
-          yes | buildozer android debug
+          
+          # Esegui la build (senza 'clean' forzato se non necessario per evitare errori di processo)
+          buildozer android debug
