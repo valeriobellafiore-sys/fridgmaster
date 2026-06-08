@@ -5,14 +5,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      
       - name: Install dependencies
         run: |
           sudo apt-get update
           sudo apt-get install -y git zip unzip openjdk-17-jdk python3-pip autoconf libtool pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev cmake libffi-dev libssl-dev
           pip3 install --user --upgrade buildozer
+      
       - name: Build with Buildozer
         run: |
+          # Aggiungiamo la cartella degli script utente al PATH per trovare buildozer
+          export PATH=$PATH:~/.local/bin
+          
           mkdir -p ~/.android
           touch ~/.android/repositories.cfg
-          buildozer clean
-          yes | buildozer android debug
+          
+          # Eseguiamo il clean e la build
+          ~/.local/bin/buildozer clean
+          yes | ~/.local/bin/buildozer android debug
