@@ -12,7 +12,7 @@ jobs:
           pip3 install --user --upgrade buildozer
       - name: Build with Buildozer
         run: |
+          export PATH=$PATH:~/.local/bin
           mkdir -p ~/.android
           touch ~/.android/repositories.cfg
-          buildozer clean
           yes | buildozer android debug
