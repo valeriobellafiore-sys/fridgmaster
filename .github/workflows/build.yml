@@ -9,13 +9,17 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt-get update
-          # Aggiunte le librerie necessarie per autoconf e la compilazione
+          # Installiamo tutte le librerie necessarie per evitare errori di compilazione (inclusi autoconf e libtool)
           sudo apt-get install -y git zip unzip openjdk-17-jdk python3-pip autoconf libtool pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev cmake libffi-dev libssl-dev
           pip3 install --user --upgrade buildozer
       
       - name: Build with Buildozer
         run: |
+          # Crea la directory delle licenze ed evita il blocco interattivo
           mkdir -p ~/.android
           touch ~/.android/repositories.cfg
+          
+          # 'yes |' risponde 'sì' automaticamente a ogni domanda di licenza dell'SDK
+          # 'buildozer clean' pulisce i residui dei tentativi falliti precedenti
           buildozer clean
-          buildozer android debug
+          yes | buildozer android debug
