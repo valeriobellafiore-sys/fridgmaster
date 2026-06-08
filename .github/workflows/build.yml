@@ -14,17 +14,12 @@ jobs:
       
       - name: Build with Buildozer
         run: |
-          # Aggiungiamo il path di buildozer
-          export PATH=$PATH:~/.local/bin
-          
-          # Creiamo la cartella delle licenze in modo esplicito
           mkdir -p ~/.android
           touch ~/.android/repositories.cfg
-          
-          # Accettiamo le licenze Android via riga di comando
+          # Questo comando forza l'accettazione delle licenze
           mkdir -p ~/.android/licenses
           echo "8933bad161af4178b1185d1a37fbf41ea5269c55" > ~/.android/licenses/android-sdk-license
           echo "d56f5187473751e9e9a199a6765f028330263f35" >> ~/.android/licenses/android-sdk-license
           
-          # Lanciamo la build con il flag --verbose
-          buildozer --verbose android debug
+          # Esegue la compilazione
+          buildozer android debug
