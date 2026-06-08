@@ -10,16 +10,14 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y git zip unzip openjdk-17-jdk python3-pip autoconf libtool pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev cmake libffi-dev libssl-dev
-          pip3 install --user --upgrade buildozer
+          # Installazione globale per essere sicuri che il comando sia ovunque
+          sudo pip3 install --upgrade buildozer
       
       - name: Build with Buildozer
         run: |
-          # Aggiungiamo la cartella degli script utente al PATH per trovare buildozer
-          export PATH=$PATH:~/.local/bin
-          
           mkdir -p ~/.android
           touch ~/.android/repositories.cfg
           
-          # Eseguiamo il clean e la build
-          ~/.local/bin/buildozer clean
-          yes | ~/.local/bin/buildozer android debug
+          # Esecuzione tramite python3 -m
+          python3 -m buildozer clean
+          yes | python3 -m buildozer android debug
