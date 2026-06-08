@@ -5,15 +5,26 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      
       - name: Install dependencies
         run: |
           sudo apt-get update
           sudo apt-get install -y git zip unzip openjdk-17-jdk python3-pip autoconf libtool pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev cmake libffi-dev libssl-dev
           pip3 install --user --upgrade buildozer
+      
       - name: Build with Buildozer
         run: |
+          # Aggiungiamo il path di buildozer
+          export PATH=$PATH:~/.local/bin
+          
+          # Creiamo la cartella delle licenze in modo esplicito
           mkdir -p ~/.android
           touch ~/.android/repositories.cfg
-          # Utilizziamo buildozer direttamente, senza 'clean' e senza 'yes |' 
-          # per vedere se la configurazione dell'ambiente base è corretta.
-          buildozer android debug
+          
+          # Accettiamo le licenze Android via riga di comando
+          mkdir -p ~/.android/licenses
+          echo "8933bad161af4178b1185d1a37fbf41ea5269c55" > ~/.android/licenses/android-sdk-license
+          echo "d56f5187473751e9e9a199a6765f028330263f35" >> ~/.android/licenses/android-sdk-license
+          
+          # Lanciamo la build con il flag --verbose
+          buildozer --verbose android debug
