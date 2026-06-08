@@ -12,4 +12,7 @@ jobs:
           pip3 install --user --upgrade buildozer
       - name: Build with Buildozer
         run: |
+          # Pulizia forzata per eliminare residui di build precedenti
+          buildozer clean
+          # Esegui la build
           buildozer android debug
