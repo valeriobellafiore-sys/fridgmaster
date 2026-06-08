@@ -12,10 +12,8 @@ jobs:
           pip3 install --user --upgrade buildozer
       - name: Build with Buildozer
         run: |
-          # Aggiungiamo il path per trovare l'eseguibile
-          export PATH=$PATH:~/.local/bin
           mkdir -p ~/.android
           touch ~/.android/repositories.cfg
-          
-          # Tentativo di build con il flag di debug forzato
-          yes | buildozer --verbose android debug
+          # Utilizziamo buildozer direttamente, senza 'clean' e senza 'yes |' 
+          # per vedere se la configurazione dell'ambiente base è corretta.
+          buildozer android debug
