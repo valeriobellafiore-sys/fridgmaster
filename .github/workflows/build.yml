@@ -12,7 +12,9 @@ jobs:
           pip3 install --user --upgrade buildozer
       - name: Build with Buildozer
         run: |
+          # Crea la cartella per le licenze
           mkdir -p ~/.android
           touch ~/.android/repositories.cfg
-          buildozer clean
-          buildozer android debug
+          # Accetta le licenze in modo non interattivo
+          yes | buildozer android clean
+          yes | buildozer android debug
