@@ -12,10 +12,7 @@ jobs:
           pip3 install --user --upgrade buildozer
       - name: Build with Buildozer
         run: |
-          # Forza l'accettazione delle licenze Android
           mkdir -p ~/.android
           touch ~/.android/repositories.cfg
-          export ANDROID_HOME=/usr/local/lib/android/sdk
-          # Esecuzione build
           buildozer clean
           buildozer android debug
